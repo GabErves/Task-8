@@ -11,26 +11,20 @@ const SocialLinks = () => {
 
     return (
         <div className='photo'>
+            <Image src={snapchat} className="photo" alt="Snapchat" height={59} width={59} />
+            <Image src={instagram} className="photo" alt="Instagram" height={59} width={59} />
             {links.map((link) => (
                 <a key={link.id} href={link.url}>
                     <Image
-                        src={
-                            link.title === "Instagram"
-                                ? instagram
-                                : link.title === "Facebook"
-                                ? facebook
-                                : link.title === "Snapchat"
-                                ? snapchat
-                                : link.title === "Twitter"
-                                ? twitter
-                                : null
-                        }
+                        src={link.title === "Instagram" ? instagram : link.title === "Facebook" ? facebook : link.title === "Snapchat" ? snapchat : link.title === "Twitter" ? twitter : null}
                         alt={link.title}
                         height={59}
                         width={59}
                     />
                 </a>
+                
             ))}
+           
         </div>
     );
 };
