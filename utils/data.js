@@ -1,3 +1,5 @@
+import supabase from "./supabase";
+
 const getCurrentUser = () => {
   return {
     id: 1,
@@ -13,7 +15,7 @@ const getLinks = (userId) => {
     {
       id: 1,
       userId: 1,
-      url: "https://twitter.com/foobar",
+      url: "https://twitter.com/gabbyshlabby",
       order: 1,
       linkType: "social",
       title: "Twitter",
@@ -63,4 +65,21 @@ const getLinksLinks = (userId) => {
   return getLinksFiltered(userId, "link");
 };
 
-export { getLinksLinks, getSocialLinks, getCurrentUser, getLinks };
+const registerUser = async (email, password, name, slug) =>{
+  const {data, error} = await supabase
+    .from('profile')
+    .select('')
+    .eq("slug", "slug");
+  if(data.length > 0){
+    return {
+      success: false,
+      message: "User slug already exists"
+    }
+  }
+  const authResponse = supabase.auth.signUp((
+    email, password
+
+  ))
+}
+
+export { getLinksLinks, getSocialLinks, getCurrentUser, getLinks, registerUser };

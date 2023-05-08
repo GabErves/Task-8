@@ -9,16 +9,9 @@ const TopContent = () => {
   const { name, email, avatar, bio } = getCurrentUser();
   return <div>
 
-    
-
 {/* <Image src={monogram} className='avatar' alt="Instagram" height={250} width={250} /> */}
-<img src={avatar} className='avatar' alt="avatar"/>
+<img src={avatar} className='avatar rounded-full' alt="avatar"/>
     <h1 className="name">{name}</h1>
-    
-    
-   
-
-
   </div>;
 };
 
